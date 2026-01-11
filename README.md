@@ -152,17 +152,42 @@ The **OCR Model Comparison Tool** is designed to help AI engineers make informed
 | **Strengths** | Extremely fast, very cost-effective |
 | **Weaknesses** | Limited TIFF support, quota limits on free tier |
 | **Best For** | High-volume processing, real-time applications |
-| **Pricing** | ~$0.00001/1K input tokens (extremely cheap) |
+| **Pricing** | See detailed pricing table below |
+
+#### 💰 Gemini Flash Pricing for Image-to-Text (OCR)
+
+| Model | Tier | Input (text/image/video) | Output (text) |
+|-------|------|--------------------------|---------------|
+| **Gemini 3 Flash Preview** | Free | Free of charge | Free of charge |
+| | Paid | $0.50 / 1M tokens | $3.00 / 1M tokens |
+| **Gemini 2.5 Flash** | Free | Free of charge | Free of charge |
+| | Paid | $0.30 / 1M tokens | $2.50 / 1M tokens |
+| **Gemini 2.5 Flash-Lite** | Free | Free of charge | Free of charge |
+| | Paid | $0.10 / 1M tokens | $0.40 / 1M tokens |
+| **Gemini 2.0 Flash** | Free | Free of charge | Free of charge |
+| | Paid | $0.10 / 1M tokens | $0.40 / 1M tokens |
+
+#### Cost per Image Estimate (~560 tokens/image)
+
+| Model | Approx. Cost/Image | Best For |
+|-------|-------------------|----------|
+| **Gemini 2.5 Flash-Lite** | ~$0.00006 | High-volume, cost-sensitive OCR |
+| **Gemini 2.0 Flash** | ~$0.00006 | Balanced performance/cost |
+| **Gemini 2.5 Flash** | ~$0.00017 | Better accuracy, hybrid reasoning |
+| **Gemini 3 Flash** | ~$0.00028 | Best quality, latest features |
+
+> **Note:** Free tier includes generous rate limits (500-1500 RPD) but data may be used to improve Google products.
 
 **Pros:**
 - ✅ Blazingly fast response times
 - ✅ Most cost-effective option
 - ✅ Good accuracy for standard documents
-- ✅ Generous free tier
+- ✅ Generous free tier with all Flash models
+- ✅ Multiple model variants for different needs
 
 **Cons:**
 - ❌ No TIFF image support
-- ❌ Quota limits can be restrictive
+- ❌ Quota limits can be restrictive on free tier
 - ❌ Less accurate on handwritten text
 - ❌ May miss fine details
 
