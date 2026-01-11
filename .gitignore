@@ -1,0 +1,46 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+test_*.py
+
+# Deployment
+deploy.zip
+*.zip
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Azure
+azure-deployment/
+
+# Sample images (keep a few, ignore the rest)
+*.tif
+*.tiff
+Fw_*/
+*.eml
+
+# Temporary files
+*.tmp
+*.temp

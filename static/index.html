@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Model Comparison Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-eye"></i>
+                <h1>OCR Model Comparison</h1>
+            </div>
+            <p class="subtitle">Compare multiple OCR models side by side</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="upload-container" id="dropZone">
+                <div class="upload-content">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h3>Drop your image here</h3>
+                    <p>or click to browse</p>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <button class="btn btn-primary" onclick="document.getElementById('imageInput').click()">
+                        <i class="fas fa-folder-open"></i> Select Image
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Image Preview -->
+            <div class="image-preview-container" id="previewContainer" style="display: none;">
+                <h3><i class="fas fa-image"></i> Uploaded Image</h3>
+                <div class="image-preview">
+                    <img id="imagePreview" src="" alt="Preview">
+                </div>
+                <div class="image-info" id="imageInfo"></div>
+            </div>
+        </section>
+
+        <!-- Model Selection -->
+        <section class="model-selection">
+            <h2><i class="fas fa-robot"></i> Select Models to Compare</h2>
+            <div class="model-cards" id="modelCards">
+                <!-- Models will be populated by JS -->
+            </div>
+        </section>
+
+        <!-- Action Button -->
+        <div class="action-section">
+            <button class="btn btn-large btn-success" id="compareBtn" disabled>
+                <i class="fas fa-play"></i> Run OCR Comparison
+            </button>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <h3>Processing...</h3>
+                <p id="loadingStatus">Sending image to OCR models</p>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <h2><i class="fas fa-chart-bar"></i> Comparison Results</h2>
+            
+            <!-- Summary Cards -->
+            <div class="summary-cards" id="summaryCards">
+                <!-- Will be populated by JS -->
+            </div>
+
+            <!-- Detailed Results -->
+            <div class="results-grid" id="resultsGrid">
+                <!-- Will be populated by JS -->
+            </div>
+
+            <!-- Scoring Explanation -->
+            <div class="scoring-info">
+                <h3><i class="fas fa-info-circle"></i> Scoring Methodology</h3>
+                <div class="scoring-grid">
+                    <div class="score-item">
+                        <span class="score-label">Quality Score (50%)</span>
+                        <span class="score-desc">Based on text length, word count, structure, and coherence</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Speed Score (30%)</span>
+                        <span class="score-desc">Response time relative to fastest model</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Cost Score (20%)</span>
+                        <span class="score-desc">Cost efficiency relative to cheapest model</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>OCR Model Comparison Tool • Built for evaluating AI vision models</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
