@@ -20,6 +20,16 @@ env/
 
 # Test files
 test_*.py
+find_endpoint.py
+list_deployments.py
+
+# Test images (root level)
+*.png
+*.jpg
+*.jpeg
+*.JPG
+*.PNG
+*.webp
 
 # Deployment
 deploy.zip

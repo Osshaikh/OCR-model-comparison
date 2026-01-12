@@ -135,10 +135,23 @@ function setupEventListeners() {
         }
     });
 
-    // Click on drop zone
-    dropZone.addEventListener('click', () => {
+    // Click on drop zone (but not on the button which is handled separately)
+    dropZone.addEventListener('click', (e) => {
+        // Prevent double trigger when clicking the button
+        if (e.target.closest('.select-image-btn')) {
+            return;
+        }
         imageInput.click();
     });
+
+    // Click on select image button
+    const selectBtn = document.querySelector('.select-image-btn');
+    if (selectBtn) {
+        selectBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent drop zone click handler
+            imageInput.click();
+        });
+    }
 
     // Compare button
     compareBtn.addEventListener('click', runComparison);
