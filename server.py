@@ -750,7 +750,7 @@ def call_azure_doc_intelligence(image_base64, image_type):
         for word in page.get("words", []):
             if "confidence" in word:
                 word_confidences.append(word["confidence"])
-    avg_confidence = (sum(word_confidences) / len(word_confidences) * 100) if word_confidences else None
+    avg_confidence = (sum(word_confidences) / len(word_confidences) * 100) if len(word_confidences) > 0 else None
     
     debug_logs.append(f"[{time.strftime('%H:%M:%S')}] Pages detected: {page_count}")
     debug_logs.append(f"[{time.strftime('%H:%M:%S')}] Text length: {len(content)} chars")
