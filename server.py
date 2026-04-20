@@ -745,6 +745,13 @@ def call_azure_doc_intelligence(image_base64, image_type):
     pages = analyze_result.get("pages", [])
     page_count = len(pages) if pages else 1
     
+    word_confidences = []
+    for page in pages:
+        for word in page.get("words", []):
+            if "confidence" in word:
+                word_confidences.append(word["confidence"])
+    avg_confidence = (sum(word_confidences) / len(word_confidences) * 100) if len(word_confidences) > 0 else None
+    
     debug_logs.append(f"[{time.strftime('%H:%M:%S')}] Pages detected: {page_count}")
     debug_logs.append(f"[{time.strftime('%H:%M:%S')}] Text length: {len(content)} chars")
     preview = content[:200].replace('\n', ' ') if content else "(empty)"
@@ -755,6 +762,7 @@ def call_azure_doc_intelligence(image_base64, image_type):
         "response_time": response_time,
         "input_tokens": page_count * 1000,  # Approximate as 1000 tokens per page for cost
         "output_tokens": estimate_tokens(content),
+        "confidence_score": avg_confidence,
         "debug_logs": debug_logs
     }
 
@@ -836,6 +844,7 @@ def process_ocr():
                     "total_tokens": result["input_tokens"] + result["output_tokens"],
                     "cost_usd": cost,
                     "quality_score": quality_score,
+                    "confidence_score": result.get("confidence_score"),
                     "char_count": len(result["text"]),
                     "word_count": len(result["text"].split())
                 },

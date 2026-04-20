@@ -395,6 +395,12 @@ function displayResults(results) {
                         <div class="metric-label">Estimated Cost</div>
                         <div class="metric-value">${m.cost_usd === 0 ? 'FREE' : '$' + m.cost_usd.toFixed(6)}</div>
                     </div>
+                    ${m.confidence_score !== null && m.confidence_score !== undefined ? `
+                        <div class="metric highlight-accuracy">
+                            <div class="metric-label">API Confidence</div>
+                            <div class="metric-value">${m.confidence_score.toFixed(1)}%</div>
+                        </div>
+                    ` : ''}
                     <div class="metric">
                         <div class="metric-label">Input Tokens</div>
                         <div class="metric-value">${m.input_tokens.toLocaleString()}</div>
